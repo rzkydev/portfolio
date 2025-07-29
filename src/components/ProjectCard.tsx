@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   AvatarGroup,
@@ -7,11 +7,15 @@ import {
   Flex,
   Heading,
   SmartLink,
+  SpacingToken,
   Text,
-} from "@once-ui-system/core";
+} from '@once-ui-system/core';
 
 interface ProjectCardProps {
   href: string;
+  aspectRatio?: string;
+  sizes?: string;
+  maxWidth?: SpacingToken | number;
   priority?: boolean;
   images: string[];
   title: string;
@@ -23,6 +27,9 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
+  sizes = '(max-width: 960px) 100vw, 960px',
+  aspectRatio = '16 / 9',
+  maxWidth,
   images = [],
   title,
   content,
@@ -31,9 +38,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   link,
 }) => {
   return (
-    <Column fillWidth gap="m">
+    <Column maxWidth={maxWidth} fillWidth gap="m">
       <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
+        aspectRatio={aspectRatio}
+        sizes={sizes}
         items={images.map((image) => ({
           slide: image,
           alt: title,
@@ -56,9 +64,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
         {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
           <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
+            {avatars?.length > 0 && (
+              <AvatarGroup avatars={avatars} size="m" reverse />
+            )}
             {description?.trim() && (
-              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
+              <Text
+                wrap="balance"
+                variant="body-default-s"
+                onBackground="neutral-weak"
+              >
                 {description}
               </Text>
             )}
@@ -66,7 +80,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {content?.trim() && (
                 <SmartLink
                   suffixIcon="arrowRight"
-                  style={{ margin: "0", width: "fit-content" }}
+                  style={{
+                    margin: '0',
+                    width: 'fit-content',
+                  }}
                   href={href}
                 >
                   <Text variant="body-default-s">Read case study</Text>
@@ -75,7 +92,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {link && (
                 <SmartLink
                   suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
+                  style={{
+                    margin: '0',
+                    width: 'fit-content',
+                  }}
                   href={link}
                 >
                   <Text variant="body-default-s">View project</Text>

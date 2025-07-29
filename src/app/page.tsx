@@ -1,10 +1,22 @@
-import React from "react";
+import React from 'react';
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Meta, Schema } from "@once-ui-system/core";
-import { home, about, person, newsletter, baseURL, routes } from "@/resources";
-import { Mailchimp, Discord, Store } from "@/components";
-import { Projects } from "@/components/work/Projects";
-import { Posts } from "@/components/blog/Posts";
+import {
+  Heading,
+  Flex,
+  Text,
+  Button,
+  Avatar,
+  RevealFx,
+  Column,
+  Badge,
+  Row,
+  Meta,
+  Schema,
+} from '@once-ui-system/core';
+import { home, about, person, newsletter, baseURL, routes } from '@/resources';
+import { Mailchimp, Discord, Store, Spotify, ProjectCard } from '@/components';
+import { Projects } from '@/components/work/Projects';
+import { Posts } from '@/components/blog/Posts';
 
 export default function Home() {
   return (
@@ -118,6 +130,127 @@ export default function Home() {
       )}
       <Projects range={[2]} />
       <Store />
+      {/* <Spotify /> */}
+      <Flex direction="column" fillWidth gap="12">
+        <Heading as="h2" variant="display-strong-m">
+          Now Playing
+        </Heading>
+        <Text onBackground="neutral-weak">
+          — My current focus playlist for getting things done.
+        </Text>
+      </Flex>
+      <iframe
+        data-testid="embed-iframe"
+        // style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWY64wDtewQt?utm_source=generator"
+        width="100%"
+        height="352"
+        frameBorder="0"
+        // allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+      <Flex direction="column" fillWidth gap="12">
+        <Heading as="h2" variant="display-strong-m">
+          Fragments of spacetime
+        </Heading>
+        <Text onBackground="neutral-weak">— Pieces from the drawer</Text>
+      </Flex>
+      <Flex fillWidth gap="l" direction="column">
+        <Flex fillWidth gap="l" mobileDirection="column">
+          <Flex direction="column" fillWidth gap="l">
+            <ProjectCard
+              href=""
+              aspectRatio="13 / 6"
+              images={['/images/projects/fragments/fragment-04.jpg']}
+              title=""
+              content=""
+              description=""
+              avatars={[]}
+              link=""
+            />
+            <ProjectCard
+              href=""
+              aspectRatio="1 / 1"
+              images={['/images/projects/fragments/fragment-06.jpg']}
+              title=""
+              content=""
+              description=""
+              avatars={[]}
+              link=""
+            />
+          </Flex>
+          <Flex direction="column" fillWidth gap="l">
+            <ProjectCard
+              sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 480px"
+              href=""
+              aspectRatio="1 / 1"
+              images={['/images/projects/fragments/fragment-07.jpg']}
+              title=""
+              content=""
+              description=""
+              avatars={[]}
+              link=""
+            />
+            <ProjectCard
+              href=""
+              aspectRatio="13 / 6"
+              images={['/images/projects/fragments/fragment-08.jpg']}
+              title=""
+              content=""
+              description=""
+              avatars={[]}
+              link=""
+            />
+          </Flex>
+        </Flex>
+        <ProjectCard
+          href=""
+          aspectRatio="4 / 3"
+          images={['/images/projects/fragments/fragment-01.jpg']}
+          title=""
+          content=""
+          description=""
+          avatars={[]}
+          link=""
+        />
+        <Flex fillWidth gap="l" mobileDirection="column">
+          <Flex direction="column" fillWidth gap="l">
+            <ProjectCard
+              href=""
+              aspectRatio="16 / 9"
+              images={['/images/projects/fragments/fragment-05.jpg']}
+              title=""
+              content=""
+              description=""
+              avatars={[]}
+              link=""
+            ></ProjectCard>
+            <ProjectCard
+              href=""
+              aspectRatio="1 / 1"
+              images={['/images/projects/fragments/fragment-03.jpg']}
+              title=""
+              content=""
+              description=""
+              avatars={[]}
+              link=""
+            ></ProjectCard>
+          </Flex>
+          <Flex direction="column" fillWidth gap="l">
+            <ProjectCard
+              href=""
+              aspectRatio="2 / 3"
+              images={['/images/projects/fragments/fragment-02.jpg']}
+              title=""
+              content=""
+              description=""
+              avatars={[]}
+              link=""
+            />
+          </Flex>
+        </Flex>
+      </Flex>
       {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );

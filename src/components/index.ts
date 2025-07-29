@@ -11,3 +11,4 @@ export { CustomMDX } from "@/components/mdx";
 export { SmartImage } from '@/components/SmartImage';
 export { Discord } from "@/components/Discord";
 export { Store } from "@/components/Store";
+export { Spotify } from "@/components/Spotify";
