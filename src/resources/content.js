@@ -55,7 +55,7 @@ const home = {
   label: 'Home',
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Business Administration Student</>,
   featured: {
     display: true,
     title: (
@@ -185,17 +185,15 @@ const about = {
     skills: [
       {
         title: 'React',
-        description: (
-          <>React Foundations for Next.js.</>
-        ),
+        description: <>React Foundations for Next.js.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
-          // {
-          //   src: '/images/projects/project-01/cover-02.jpg',
-          //   alt: 'Project image',
-          //   width: 16,
-          //   height: 9,
-          // },
+          {
+            src: '/images/certificates/react-foundations-certificate.webp',
+            alt: 'Project image',
+            width: 16,
+            height: 9,
+          },
           // {
           //   src: '/images/projects/project-01/cover-03.jpg',
           //   alt: 'Project image',
@@ -206,17 +204,15 @@ const about = {
       },
       {
         title: 'Next.js',
-        description: (
-          <>Next.js App Router Fundamentals.</>
-        ),
+        description: <>Next.js App Router Fundamentals.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
-          // {
-          //   src: '/images/projects/project-01/cover-04.jpg',
-          //   alt: 'Project image',
-          //   width: 16,
-          //   height: 9,
-          // },
+          {
+            src: '/images/certificates/dashboard-app-certificate.webp',
+            alt: 'Project image',
+            width: 16,
+            height: 9,
+          },
         ],
       },
     ],

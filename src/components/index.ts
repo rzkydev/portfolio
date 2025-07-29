@@ -8,3 +8,6 @@ export { Providers } from "@/components/Providers";
 export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
+export { SmartImage } from '@/components/SmartImage';
+export { Discord } from "@/components/Discord";
+export { Store } from "@/components/Store";
