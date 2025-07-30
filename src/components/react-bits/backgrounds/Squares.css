@@ -1,0 +1,11 @@
+.squares-canvas {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.squares-canvas.theme-transitioning {
+  opacity: 0.8;
+}

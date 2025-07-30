@@ -1,12 +1,22 @@
 import '@once-ui-system/core/css/styles.css';
 import '@once-ui-system/core/css/tokens.css';
-import '@/resources/custom.css'
+import '@/resources/custom.css';
 
-import classNames from "classnames";
+import classNames from 'classnames';
 
-import { Background, Column, Flex, Meta, opacity, SpacingToken } from "@once-ui-system/core";
+import Squares from '@/components/react-bits/backgrounds/Squares';
+
+import {
+  Background,
+  Column,
+  Flex,
+  Meta,
+  opacity,
+  SpacingToken,
+} from '@once-ui-system/core';
 import { Footer, Header, RouteGuard, Providers } from '@/components';
 import { baseURL, effects, fonts, style, dataStyle, home } from '@/resources';
+import Silk from '@/components/react-bits/backgrounds/Silk';
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -33,7 +43,7 @@ export default async function RootLayout({
         fonts.heading.variable,
         fonts.body.variable,
         fonts.label.variable,
-        fonts.code.variable,
+        fonts.code.variable
       )}
     >
       <head>
@@ -96,7 +106,16 @@ export default async function RootLayout({
         />
       </head>
       <Providers>
-        <Column as="body" background="page" fillWidth style={{minHeight: "100vh"}} margin="0" padding="0" horizontal="center">
+        <Column
+          as="body"
+          background="page"
+          fillWidth
+          style={{ minHeight: '100vh' }}
+          margin="0"
+          padding="0"
+          horizontal="center"
+        >
+          {/* Background dengan effects yang sudah ada */}
           <Background
             position="fixed"
             mask={{
@@ -138,24 +157,42 @@ export default async function RootLayout({
               color: effects.lines.color,
             }}
           />
-          <Flex fillWidth minHeight="16" hide="s"/>
-            <Header />
-            <Flex
-              zIndex={0}
-              fillWidth
-              padding="l"
-              horizontal="center"
-              flex={1}
-            >
-              <Flex horizontal="center" fillWidth minHeight="0">
-                <RouteGuard>
-                  {children}
-                </RouteGuard>
-              </Flex>
+
+          <div
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: -1,
+              pointerEvents: 'none',
+            }}
+          >
+            <Squares
+              speed={0.5}
+              squareSize={60}
+              direction="diagonal"
+            />
+            {/* <Silk
+              speed={5}
+              scale={1}
+              color="#7B7481"
+              noiseIntensity={1.5}
+              rotation={0}
+            /> */}
+          </div>
+
+          <Flex fillWidth minHeight="16" hide="s" />
+          <Header />
+          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
+            <Flex horizontal="center" fillWidth minHeight="0">
+              <RouteGuard>{children}</RouteGuard>
             </Flex>
-            <Footer/>
-          </Column>
-        </Providers>
-      </Flex>
+          </Flex>
+          <Footer />
+        </Column>
+      </Providers>
+    </Flex>
   );
 }
